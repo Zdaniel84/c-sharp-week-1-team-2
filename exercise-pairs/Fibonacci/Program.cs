@@ -10,7 +10,7 @@ namespace Fibonacci
             
             string userInputString = Console.ReadLine();
             int userInputInt = int.Parse(userInputString);
-            int fibonacciSmaller = 1;
+            int fibonacciSmaller = 0;
             int fibonacciLarger = 1;
             int fibonacciCurrent = 0;
            
@@ -21,9 +21,13 @@ namespace Fibonacci
             {
                 Console.WriteLine(fibSequence);
             }
+            else if (userInputInt == 1)
+            {
+                Console.WriteLine(fibSequence + ", 1");
+            }
             else
             {
-                while(userInputInt > fibonacciLarger - 1)
+                while(userInputInt >= fibonacciLarger + fibonacciSmaller)
                 {
                     fibonacciCurrent = fibonacciSmaller + fibonacciLarger;
                     fibonacciSmaller = fibonacciLarger;
