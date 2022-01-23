@@ -50,7 +50,7 @@ namespace DecimalToBinary
                     //}
                     //else
                     //{
-                    //    Console.WriteLine("It didn't work!");
+                    //    Console.WriteLine("It didn't work!"); ??
                     //    Console.ReadLine();
                     //}
                     int convertedValue = int.Parse(decimalInputArray[i]); // convert to integer array
