@@ -40,7 +40,19 @@ namespace DecimalToBinary
                     //-------------------------------------------------------------------------
                     // Trying to fix invalid form/input/anything that doesn't follow the rules.
                     // Also problem with 0 not returning result for 0.
+                    // TryParse test works! Now need to figure out how to apply TryParse to each element in array...
                     //-------------------------------------------------------------------------
+                    //int convertedValue;
+                    //if (int.TryParse(decimalInputArray[0], out convertedValue))
+                    //{
+                    //    Console.WriteLine("It worked!" + convertedValue);
+                    //    Console.ReadLine();
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("It didn't work!");
+                    //    Console.ReadLine();
+                    //}
                     int convertedValue = int.Parse(decimalInputArray[i]); // convert to integer array
                                                                       //converted value to binary
 
@@ -98,7 +110,10 @@ namespace DecimalToBinary
 
 
                     //Zac and Jason working on various user input options.
+
+
                     if (userPlayAgainChoice == "y" || userPlayAgainChoice == "yes" || userPlayAgainChoice == "Y" || userPlayAgainChoice == "Yes")
+                                                          
                     {
                         userPlayAgainChoice = "true";
                         validInput = true;
