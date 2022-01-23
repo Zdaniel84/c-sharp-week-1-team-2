@@ -5,10 +5,8 @@ namespace DecimalToBinary
     class Program
     {
         static void Main(string[] args)
-        {
-            //Console.WriteLine("Hello, Dave! \nPlease enter a series of base-10 integers (separated by spaces):");
-            string userInput = "";
-            // string[] decimalInputArray = userInput.Split(" ");
+        {            
+            string userInput = "";            
             string userPlayAgainChoice = "";
             bool userPlayAgainChoiceBool = true;
 
@@ -19,14 +17,9 @@ namespace DecimalToBinary
             //3 % 2 = 1
             //(3 / 2 = 1)
             //1 % 2 = 1
-
-            //    1101
-            
-            int convertedValuePlaceholder = 0; //declare temp variables
-            int integerDivisionResults = 1;
-            int moduloResult = 0;
-            string returnToUser = "";
-            int convertedValue = 0;
+            //1101
+                        
+            int moduloResult = 0;            
             bool continueVariable = true;
             
             while (continueVariable == true)
@@ -41,17 +34,16 @@ namespace DecimalToBinary
                 for (int i = 0; i < decimalInputArray.Length; i++)
                 {
                     //Reset Variables
-                    integerDivisionResults = 1;
-                    returnToUser = "";
+                    //integerDivisionResults = 1;
+                    string returnToUser = "";
 
 
-
-                    convertedValue = int.Parse(decimalInputArray[i]); // convert to integer array
+                    int convertedValue = int.Parse(decimalInputArray[i]); // convert to integer array
                                                                       //converted value to binary
 
                     {//modulo math
-                        convertedValuePlaceholder = convertedValue;
-                        while (integerDivisionResults != 0)
+                        int convertedValuePlaceholder = convertedValue;
+                        while (convertedValue != 0)
 
                         {
                             moduloResult = convertedValue % 2;
@@ -64,7 +56,7 @@ namespace DecimalToBinary
                             {
                                 returnToUser = "0" + returnToUser;
                             }
-                            integerDivisionResults = convertedValue / 2;
+                            //integerDivisionResults = convertedValue / 2;
                             //convertedValuePlaceholder = convertedValue;
                             convertedValue = convertedValue / 2;
 
