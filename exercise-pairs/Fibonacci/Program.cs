@@ -6,49 +6,80 @@ namespace Fibonacci
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Greetings User! Please enter an integer value:");
-            
-            string userInputString = Console.ReadLine();
-            int userInputInt = int.Parse(userInputString);
+            //Variables Required!
+            string userInputString = "";
+            int userInputInt = 1;
             int fibonacciSmaller = 0;
             int fibonacciLarger = 1;
             int fibonacciCurrent = 0;
-           
+
+            //Following Variable added for choice to "play" again -- I think I need both of these
+            string userPlayAgainChoice = "y";
+            bool userPlayAgainChoiceBool = true;
+
             string fibSequence = "0, 1";
+            
+            //Adding a while loop to let the user "play" again
+            while(userPlayAgainChoiceBool == true)
+            {
+                //Reset Variables -- Do I have to do this? Is there a better way? 
+                fibonacciSmaller = 0;
+                fibonacciLarger = 1;
+                fibonacciCurrent = 1;
 
-            //Special Case <+0
-            if(userInputInt <= 0)
-            {
-                Console.WriteLine(fibSequence);
-            }
-            else if (userInputInt == 1)
-            {
-                Console.WriteLine(fibSequence + ", 1");
-            }
-            else
-            {
-                while(userInputInt >= fibonacciLarger + fibonacciSmaller)
+                //Changed Greeting and moved into Play again while loop
+                Console.WriteLine("Greetings User! Provide me with an integer value, and I will show you the Fibonacci sequence up to your number!:");
+                userInputString = Console.ReadLine();
+                userInputInt = int.Parse(userInputString);
+                fibSequence = "0, 1";
+
+                //Special Case if ujser input is zero or less than zero
+                if (userInputInt <= 0)
                 {
-                    fibonacciCurrent = fibonacciSmaller + fibonacciLarger;
-                    fibonacciSmaller = fibonacciLarger;
-                    fibonacciLarger = fibonacciCurrent;
-
-                    fibSequence += ", " + fibonacciLarger;
-
+                    Console.WriteLine(fibSequence);
+                }
+                //Special case if user input is one
+                else if (userInputInt == 1)
+                {
+                    Console.WriteLine(fibSequence + ", 1");
                 }
 
-                Console.WriteLine(fibSequence);
+                //All other cases (integer input)
+                else
+                {
+                    while (userInputInt >= fibonacciLarger + fibonacciSmaller)
+                    {
+                        fibonacciCurrent = fibonacciSmaller + fibonacciLarger;
+                        fibonacciSmaller = fibonacciLarger;
+                        fibonacciLarger = fibonacciCurrent;
+
+                        fibSequence += ", " + fibonacciLarger;
+
+                    }
+
+                    Console.WriteLine(fibSequence);
+                   
+
+
+                }
+                Console.WriteLine("Would you like to try another number? Enter y for yes or n for no");
+                userPlayAgainChoice = Console.ReadLine();
+
+                //Clear Screen to Make it Pretty
+                Console.Clear();
+
+                if(userPlayAgainChoice == "y")
+                {
+                    userPlayAgainChoice = "true";
+                }
+                else if(userPlayAgainChoice == "n")
+                {
+                    userPlayAgainChoice = "false";
+                }
+
+                userPlayAgainChoiceBool = bool.Parse(userPlayAgainChoice);
 
             }
-            //Adjust String for next Fibonacci number
-            //Loop to add numbers to string until the Fibonacci > UserInput
-
-            //Print the string 
-
-            //Startover
-
-
-            //Create a 10 number long version of the Fibbonacci Sequence
         }
     }
 }
