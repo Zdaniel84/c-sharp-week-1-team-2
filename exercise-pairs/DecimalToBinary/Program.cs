@@ -8,7 +8,7 @@ namespace DecimalToBinary
         {            
             string userInput = "";            
             string userPlayAgainChoice = "";
-            bool userPlayAgainChoiceBool = true;
+            //bool userPlayAgainChoiceBool = true;
 
             //13 % 2 = 1
             //(13 / 2 = 6)
@@ -19,7 +19,7 @@ namespace DecimalToBinary
             //1 % 2 = 1
             //1101
                         
-            int moduloResult = 0;            
+            //int moduloResult = 0;  -- Moved into loop/works fine.           
             bool continueVariable = true;
             
             while (continueVariable == true)
@@ -27,7 +27,7 @@ namespace DecimalToBinary
                 Console.WriteLine("Hello, Dave! \nPlease enter a series of base-10 integers (separated by spaces):");
                 userInput = Console.ReadLine();
                 string[] decimalInputArray = userInput.Split(" ");
-              //  userPlayAgainChoice = "y";
+              //  userPlayAgainChoice = "y"; 
                 //userPlayAgainChoiceBool;
 
 
@@ -37,16 +37,21 @@ namespace DecimalToBinary
                     //integerDivisionResults = 1;
                     string returnToUser = "";
 
-
+                    //-------------------------------------------------------------------------
+                    // Trying to fix invalid form/input/anything that doesn't follow the rules.
+                    // Also problem with 0 not returning result for 0.
+                    //-------------------------------------------------------------------------
                     int convertedValue = int.Parse(decimalInputArray[i]); // convert to integer array
                                                                       //converted value to binary
 
+
                     {//modulo math
                         int convertedValuePlaceholder = convertedValue;
+
                         while (convertedValue != 0)
 
                         {
-                            moduloResult = convertedValue % 2;
+                            int moduloResult = convertedValue % 2;
 
                             if (moduloResult == 1)
                             {
@@ -84,18 +89,41 @@ namespace DecimalToBinary
 
                 //Clear Screen to Make it Pretty
                 Console.Clear();
+                bool validInput = false;
 
-                if (userPlayAgainChoice == "y")
+                while (!validInput)
                 {
-                    userPlayAgainChoice = "true";
-                }
-                else if (userPlayAgainChoice == "n")
-                {
-                    userPlayAgainChoice = "false";
-                    Console.WriteLine("Have a Nice Day!\r\nPress Return to Exit");
-                    Console.ReadLine();
-                }
 
+
+
+
+                    //Zac and Jason working on various user input options.
+                    if (userPlayAgainChoice == "y" || userPlayAgainChoice == "yes" || userPlayAgainChoice == "Y" || userPlayAgainChoice == "Yes")
+                    {
+                        userPlayAgainChoice = "true";
+                        validInput = true;
+                        Console.Clear();
+                    }
+                    else if (userPlayAgainChoice == "n" || userPlayAgainChoice == "no" || userPlayAgainChoice == "N" || userPlayAgainChoice == "No")
+                    {
+
+                        userPlayAgainChoice = "false";
+                        validInput = true;
+                        Console.Clear();
+                        Console.WriteLine("Have a Nice Day!\r\nPress Return to Exit");
+                        Console.ReadLine();
+                    }
+                    else //Anything else that's entered.
+                    {
+                        //Console.WriteLine("You suck at following directions!"); //DON'T FORGET TO CHANGE MESSAGE!
+                        //Console.ReadLine();
+                        validInput = false;
+                        Console.Clear();
+                        Console.WriteLine("Invalid input, please enter y or n to continue: ");
+                        userPlayAgainChoice = Console.ReadLine();
+                        
+                    }
+                }
                 continueVariable = bool.Parse(userPlayAgainChoice);
             }
 
