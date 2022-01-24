@@ -5,19 +5,10 @@ namespace DecimalToBinary
     class Program
     {
         static void Main(string[] args)
-        {            
+        {   //Code works great, comments could use some work
             string userInput = "";            
-            string userPlayAgainChoice = "";
-            //bool userPlayAgainChoiceBool = true;
-
-            //13 % 2 = 1
-            //(13 / 2 = 6)
-            //6 % 2 = 0
-            //(6 / 2 = 3)
-            //3 % 2 = 1
-            //(3 / 2 = 1)
-            //1 % 2 = 1
-            //1101
+            string userPlayAgainChoice = "";            
+            
                         
             //int moduloResult = 0;  -- Moved into loop/works fine.           
             bool continueVariable = true;
@@ -27,39 +18,22 @@ namespace DecimalToBinary
                 Console.WriteLine("Hello, Dave! \nPlease enter a series of base-10 integers (separated by spaces):");
                 userInput = Console.ReadLine();
                 string[] decimalInputArray = userInput.Split(" ");
-              //  userPlayAgainChoice = "y"; 
-                //userPlayAgainChoiceBool;
+             
 
 
                 for (int i = 0; i < decimalInputArray.Length; i++)
                 {
-                    //Reset Variables
-                    //integerDivisionResults = 1;
+                    
                     string returnToUser = "";
+                    
+                    int convertedValue = int.Parse(decimalInputArray[i]); 
 
-                    //-------------------------------------------------------------------------
-                    // Trying to fix invalid form/input/anything that doesn't follow the rules.
-                    // Also problem with 0 not returning result for 0.
-                    // TryParse test works! Now need to figure out how to apply TryParse to each element in array...
-                    //-------------------------------------------------------------------------
-                    //int convertedValue;
-                    //if (int.TryParse(decimalInputArray[0], out convertedValue))
-                    //{
-                    //    Console.WriteLine("It worked!" + convertedValue);
-                    //    Console.ReadLine();
-                    //}
-                    //else
-                    //{
-                    //    Console.WriteLine("It didn't work!"); ??
-                    //    Console.ReadLine();
-                    //}
-                    int convertedValue = int.Parse(decimalInputArray[i]); // convert to integer array
-                                                                      //converted value to binary
-
-
-                    {//modulo math
-                        int convertedValuePlaceholder = convertedValue;
-
+                    
+                        int convertedValuePlaceholder = convertedValue; //modulo math
+                        if (convertedValue == 0)
+                        {
+                            returnToUser = "0";
+                        }
                         while (convertedValue != 0)
 
                         {
@@ -73,23 +47,17 @@ namespace DecimalToBinary
                             {
                                 returnToUser = "0" + returnToUser;
                             }
-                            //integerDivisionResults = convertedValue / 2;
-                            //convertedValuePlaceholder = convertedValue;
+                            
                             convertedValue = convertedValue / 2;
 
 
 
                         }
-                        Console.WriteLine(convertedValuePlaceholder + " in binary is: " + returnToUser);
-                        //  Console.WriteLine(returnToUser);
-                        //   returnToUser = "";
-                        //toss result to string
-
-                        //integer division
+                        Console.WriteLine(convertedValuePlaceholder + " in binary is: " + returnToUser);                      
 
 
 
-                    }
+                    
 
 
                 }
@@ -130,8 +98,7 @@ namespace DecimalToBinary
                     }
                     else //Anything else that's entered.
                     {
-                        //Console.WriteLine("You suck at following directions!"); //DON'T FORGET TO CHANGE MESSAGE!
-                        //Console.ReadLine();
+                        
                         validInput = false;
                         Console.Clear();
                         Console.WriteLine("Invalid input, please enter y or n to continue: ");
@@ -145,9 +112,7 @@ namespace DecimalToBinary
 
 
 
-            //start for loop
-            //parse to ints
-            //binary conversion
+            
         }
 
     }
